@@ -189,6 +189,60 @@
 
   </div>
 </section>
+
+<style>
+.faq {
+  max-width: 800px;
+  margin: 30px auto;
+}
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.faq-question {
+  width: 100%;
+  background: #fff;
+  color: #333;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.faq-question:hover {
+  background: #f9f9f9;
+}
+.faq-answer {
+  display: none;
+  padding: 15px 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+.arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+.faq-item.active .arrow {
+  transform: rotate(90deg);
+}
+.faq-item.active .faq-answer {
+  display: block;
+}
+</style>
+
+<script>
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    item.classList.toggle('active');
+  });
+});
+</script>
   
 <section>
   <h2>OSA</h2>
