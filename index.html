@@ -206,7 +206,38 @@
       color: #555;
     }
 
-    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
+    /* OSA */
+    form {
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .osa-btn {
+      background: var(--green);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .osa-btn:hover { background: var(--gold); }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
   </style>
 </head>
 <body>
@@ -285,8 +316,20 @@
 
 <section id="osa">
   <h2>OSA</h2>
-  <p>Vänligen svara senast 1 maj 2025.</p>
-  <iframe src="https://docs.google.com/forms/d/e/DITT-FORM-ID/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Laddar…</iframe>
+  <p>Vänligen svara senast 6 maj 2026.</p>
+
+  <form action="https://formsubmit.co/emil.thiman96@gmail.com" method="POST">
+    <label for="namn">Namn:</label><br>
+    <input type="text" id="namn" name="namn" required><br>
+
+    <label for="antal">Antal gäster:</label><br>
+    <input type="number" id="antal" name="antal" min="1" required><br>
+
+    <label for="mat">Matpreferenser / allergier:</label><br>
+    <textarea id="mat" name="mat" rows="3"></textarea><br>
+
+    <button type="submit" class="osa-btn">Skicka OSA</button>
+  </form>
 </section>
 
 <footer>
