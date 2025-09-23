@@ -96,122 +96,132 @@
       margin-bottom: 20px;
     }
 
-    /* Schema */
-    #schedule {
-      padding: 80px 20px;
-      text-align: center;
-    }
+/* Schema */
+#schedule {
+  padding: 80px 20px;
+  text-align: center;
+}
 
-    .timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: auto;
-    }
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    .timeline::after {
-      content: "";
-      position: absolute;
-      width: 3px;
-      background: #2f4f4f;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -1.5px;
-    }
+/* Linjen i mitten */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #2f4f4f;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
 
-    .timeline-item {
-      position: relative;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 40px 0;
-    }
+.timeline-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+}
 
-    .timeline-item.left .timeline-content {
-      width: 45%;
-      text-align: right;
-    }
+/* Vänster sida */
+.timeline-item.left {
+  justify-content: flex-end;
+}
 
-    .timeline-item.right .timeline-content {
-      width: 45%;
-      text-align: left;
-    }
+.timeline-item.left .timeline-content {
+  width: 45%;
+  text-align: right;
+}
 
-    /* Själva korten */
-    .timeline-content {
-      background: #ffffff;
-      padding: 20px 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Roboto', sans-serif;
-    }
+/* Höger sida */
+.timeline-item.right {
+  justify-content: flex-start;
+}
 
-    .timeline-content h3 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.6rem;
-      color: #2f4f4f;
-      margin-bottom: 10px;
-    }
+.timeline-item.right .timeline-content {
+  width: 45%;
+  text-align: left;
+}
 
-    .timeline-content p {
-      font-size: 1rem;
-      color: #444;
-    }
+/* Själva korten */
+.timeline-content {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
 
-    /* Små cirklar – nu mitt på linjen */
-    .circle {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 16px;
-      height: 16px;
-      background: #2f4f4f;
-      border-radius: 50%;
-      z-index: 2;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
+.timeline-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  color: #2f4f4f;
+  margin-bottom: 10px;
+}
 
-    .circle:hover {
-      transform: translateX(-50%) scale(1.3);
-      background: #3b6e6e;
-    }
+.timeline-content p {
+  font-size: 1rem;
+  color: #444;
+}
 
-    /* Hover-effekt på rutorna */
-    .timeline-content:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
+/* Små cirklar på linjen */
+.circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #2f4f4f;
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
 
-    /* Mobilanpassning */
-    @media screen and (max-width: 768px) {
-      .timeline::after {
-        left: 20px;
-      }
+.circle:hover {
+  transform: translateX(-50%) scale(1.3);
+  background: #3b6e6e;
+}
 
-      .timeline-item {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-left: 40px;
-      }
+/* Hover-effekt på rutorna */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-      .timeline-item.left .timeline-content,
-      .timeline-item.right .timeline-content {
-        width: 100%;
-        text-align: left;
-        margin-top: 15px;
-      }
+/* Mobilanpassning */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
 
-      .circle {
-        left: 20px;
-        transform: none;
-      }
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+  }
 
-      .circle:hover {
-        transform: scale(1.3);
-      }
-    }
+  .timeline-item.left .timeline-content,
+  .timeline-item.right .timeline-content {
+    width: 100%;
+    text-align: left;
+    margin-top: 15px;
+  }
+
+  .circle {
+    left: 20px;
+    transform: none;
+  }
+
+  .circle:hover {
+    transform: scale(1.3);
+  }
+}
     
     /* FAQ */
     .faq-item {
