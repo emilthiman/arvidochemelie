@@ -2,19 +2,53 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Arvid & Emelie – 2026-06-06</title>
+  <title>Anna & Per – Vårt Bröllop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Georgia&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Prata', serif;
+      font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      background: #D9F0DD;
+      background: #fdfdf9;
       color: #333;
       line-height: 1.6;
     }
+
+    /* Färgpalett */
+    :root {
+      --green: #2e6041;
+      --light-green: #eaf4ef;
+      --gold: #c9a646;
+    }
+
+    /* Navigationsmeny */
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 0;
+      padding: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--green);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* Header */
     header {
       text-align: center;
-      padding: 100px 20px;
+      padding: 120px 20px;
       background: url('https://images.unsplash.com/photo-1529636522512-d6f1c1d63a48?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
       color: white;
       position: relative;
@@ -24,31 +58,35 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.4); /* mörk overlay för att texten ska synas */
+      background: rgba(0,0,0,0.4);
     }
     header h1, header p {
       position: relative;
       z-index: 1;
     }
     header h1 {
-      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
       margin: 0;
     }
-    header p {
-      font-size: 1.3rem;
-    }
+    header p { font-size: 1.4rem; }
+
+    /* Sektioner */
     section {
-      max-width: 800px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     h2 {
-      color: #849464;
-      margin-top: 0;
-          .timeline {
+      font-family: 'Playfair Display', serif;
+      color: var(--green);
+      border-bottom: 2px solid var(--gold);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    /* Tidslinje */
+    .timeline {
       position: relative;
       max-width: 900px;
       margin: 40px auto;
@@ -61,7 +99,7 @@
       left: 50%;
       margin-left: -2px;
       width: 4px;
-      background: #8b1e3f;
+      background: var(--green);
     }
     .timeline-item {
       padding: 20px;
@@ -69,15 +107,15 @@
       width: 50%;
     }
     .timeline-item .content {
-      background: #fff;
+      background: var(--light-green);
       padding: 15px 20px;
       border-radius: 12px;
+      border: 1px solid var(--green);
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: relative;
     }
     .timeline-item .time {
       font-weight: bold;
-      color: #8b1e3f;
+      color: var(--green);
       display: block;
       margin-bottom: 5px;
     }
@@ -87,7 +125,7 @@
       top: 25px;
       width: 20px; height: 20px;
       border-radius: 50%;
-      background: #8b1e3f;
+      background: var(--gold);
       border: 3px solid white;
       z-index: 1;
     }
@@ -95,224 +133,165 @@
     .timeline-item.left::before { right: -10px; }
     .timeline-item.right { left: 50%; }
     .timeline-item.right::before { left: -10px; }
-
     @media screen and (max-width: 768px) {
       .timeline::after { left: 20px; }
       .timeline-item { width: 100%; padding-left: 50px; text-align: left; }
       .timeline-item.left, .timeline-item.right { left: 0; }
       .timeline-item::before { left: 10px; }
     }
+
+    /* Plats */
     .map-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin: 30px auto;
-      max-width: 1200px;
     }
-    .map-image img {
+    .map-image img, .map-container iframe {
       width: 100%;
-      max-width: 550px;
+      max-width: 500px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .map-container iframe {
-      width: 100%;
-      max-width: 550px;
+
+    /* FAQ */
+    .faq-item {
+      margin-bottom: 15px;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .osa-btn {
-      display: inline-block;
-      background: #849464;
-      color: white;
-      padding: 12px 24px;
-      margin-top: 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
+    .faq-question {
+      width: 100%; background: #fff; border: none;
+      padding: 15px 20px;
+      font-size: 1rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+      color: var(--green);
     }
-    .osa-btn:hover {
-      background: #849464;
-    }
-    footer {
+    .faq-question:hover { background: var(--light-green); }
+    .faq-answer { display: none; padding: 15px 20px; background: #fff; border-top: 1px solid #eee; }
+    .arrow { font-size: 1.2rem; transition: transform 0.3s; }
+    .faq-item.active .arrow { transform: rotate(90deg); }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* Brudfölje */
+    .bridal-party {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #777;
     }
+    .bridal-party img {
+      width: 180px; height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bridal-party img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    .bridal-party h3 {
+      margin: 10px 0 5px;
+      font-family: 'Playfair Display', serif;
+      color: var(--green);
+    }
+    .bridal-party p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Arvid & Emelie</h1>
-    <p>Vi gifter oss den 6 juni 2026 i Åmund Vin & Fruktgård</p>
-  </header>
+<!-- Navigering -->
+<nav>
+  <ul>
+    <li><a href="#welcome">Välkomna</a></li>
+    <li><a href="#timeline">Schema</a></li>
+    <li><a href="#place">Plats</a></li>
+    <li><a href="#party">Brudföljet</a></li>
+    <li><a href="#faq">Frågor</a></li>
+    <li><a href="#osa">OSA</a></li>
+  </ul>
+</nav>
 
-  <section>
-    <h2>Välkomna</h2>
-    <p>
-      Vi är så glada att få dela vår stora dag med er! Här hittar ni all information om vårt bröllop – tid, plats, klädsel och boende.
-    </p>
-  </section>
+<header>
+  <h1>Anna & Per</h1>
+  <p>Vi gifter oss den 12 juli 2025 i Stockholm</p>
+</header>
 
-<section>
+<section id="welcome">
+  <h2>Välkomna</h2>
+  <p>Vi är så glada att få dela vår stora dag med er! Här hittar ni all information om vårt bröllop – tid, plats, klädsel och boende.</p>
+</section>
+
+<section id="timeline">
   <h2>Dagens Schema</h2>
   <div class="timeline">
     <div class="timeline-item left">
-      <div class="content">
-        <span class="time">14:00</span>
-        <h3>Vigsel</h3>
-        <p>Vi gifter oss i Storkyrkan.</p>
-      </div>
+      <div class="content"><span class="time">14:00</span><h3>Vigsel</h3><p>Vi gifter oss i Storkyrkan.</p></div>
     </div>
-
     <div class="timeline-item right">
-      <div class="content">
-        <span class="time">16:00</span>
-        <h3>Middag</h3>
-        <p>Trerätters middag på Grand Hôtel.</p>
-      </div>
+      <div class="content"><span class="time">16:00</span><h3>Middag</h3><p>Trerätters middag på Grand Hôtel.</p></div>
     </div>
-
     <div class="timeline-item left">
-      <div class="content">
-        <span class="time">20:00</span>
-        <h3>Fest</h3>
-        <p>Dans, musik och överraskningar hela kvällen!</p>
-      </div>
+      <div class="content"><span class="time">20:00</span><h3>Fest</h3><p>Dans, musik och överraskningar hela kvällen!</p></div>
     </div>
   </div>
 </section>
-  
-  <section>
-    <h2>Plats & Tid</h2>
-    <p>
-      Vigseln hålls i <strong>Storkyrkan</strong> klockan 14:00.  
-      Festen fortsätter sedan på <strong>Grand Hôtel</strong>.
-    </p>
-  </section>
 
-<section>
+<section id="place">
   <h2>Plats</h2>
   <div class="map-wrapper">
     <div class="map-image">
       <img src="https://www.amund.se/media/p4uiuv2e/dsc_2004-e1470722209796.jpg?width=1200&height=800&v=1d8abb5b145c6c0" alt="Platsbild">
     </div>
     <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8778.175523892734!2d16.22944249678328!3d56.63051429954045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4657cd7f68580bb1%3A0x7517a0628c1b2f2e!2s%C3%85mund%20Vin%20och%20Fruktg%C3%A5rd!5e0!3m2!1ssv!2sse!4v1758572886901!5m2!1ssv!2sse" 
-        width="600" height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8778.175523892734!2d16.22944249678328!3d56.63051429954045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4657cd7f68580bb1%3A0x7517a0628c1b2f2e!2s%C3%85mund%20Vin%20och%20Fruktg%C3%A5rd!5e0!3m2!1ssv!2sse!4v1758572886901!5m2!1ssv!2sse" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
-  
-  <section>
-    <h2>Klädsel</h2>
-    <p>
-      Klädkod: Kavaj
-    </p>
-  </section>
 
-<section>
+<section id="party">
+  <h2>Brudföljet</h2>
+  <div class="bridal-party">
+    <div><img src="https://via.placeholder.com/180" alt="Person 1"><h3>Sofia</h3><p>Tärna</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 2"><h3>Lisa</h3><p>Tärna</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 3"><h3>Karin</h3><p>Tärna</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 4"><h3>Johan</h3><p>Bestman</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 5"><h3>Erik</h3><p>Bestman</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 6"><h3>Maria</h3><p>Toastmaster</p></div>
+    <div><img src="https://via.placeholder.com/180" alt="Person 7"><h3>David</h3><p>Toastmaster</p></div>
+  </div>
+</section>
+
+<section id="faq">
   <h2>Vanliga frågor</h2>
   <div class="faq">
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Vad är klädkoden?</span>
-        <span class="arrow">›</span>
-      </button>
-      <div class="faq-answer">
-        <p>Kavaj – För herrar innebär kavaj att man ska bära kostym. Men val av färg både på kavajen och skjortan gör du själv. För damer innebär det klänning, kjol, byxdress eller dräkt.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Har ni en önskelista?</span>
-        <span class="arrow">›</span>
-      </button>
-      <div class="faq-answer">
-        <p>Det allra viktigaste för oss är att få dela den här dagen med er. Vill ni ändå ge oss något, skulle vi bli väldigt glada för ett bidrag som hjälper oss att skapa vår framtid tillsammans.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Är barn välkomna?</span>
-        <span class="arrow">›</span>
-      </button>
-      <div class="faq-answer">
-        <p>Barnen är välkomna på vår vigsel men under middag och fest väljer vi att fira i vuxet sällskap.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <span>Hur hanteras matallergier?</span>
-        <span class="arrow">›</span>
-      </button>
-      <div class="faq-answer">
-        <p>Vi vill att alla våra gäster ska kunna njuta av måltiden. Vänligen ange eventuella matallergier eller dietrestriktioner när du OSAr.</p>
-      </div>
-    </div>
-
+    <div class="faq-item"><button class="faq-question"><span>Vad är klädkoden?</span><span class="arrow">›</span></button><div class="faq-answer"><p>Kavaj – För herrar innebär kavaj kostym. För damer klänning, kjol, byxdress eller dräkt.</p></div></div>
+    <div class="faq-item"><button class="faq-question"><span>Har ni en önskelista?</span><span class="arrow">›</span></button><div class="faq-answer"><p>Det viktigaste för oss är att fira med er. Vill ni ge något uppskattar vi bidrag till vår framtid.</p></div></div>
+    <div class="faq-item"><button class="faq-question"><span>Är barn välkomna?</span><span class="arrow">›</span></button><div class="faq-answer"><p>Barn är välkomna till vigseln, men middag och fest firas i vuxet sällskap.</p></div></div>
+    <div class="faq-item"><button class="faq-question"><span>Hur hanteras matallergier?</span><span class="arrow">›</span></button><div class="faq-answer"><p>Ange matallergier i samband med OSA så vi kan ordna anpassad mat.</p></div></div>
   </div>
 </section>
 
-<style>
-.faq {
-  max-width: 800px;
-  margin: 30px auto;
-}
-.faq-item {
-  margin-bottom: 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.faq-question {
-  width: 100%;
-  background: #fff;
-  color: #333;
-  border: none;
-  padding: 15px 20px;
-  font-size: 1rem;
-  text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-.faq-question:hover {
-  background: #f9f9f9;
-}
-.faq-answer {
-  display: none;
-  padding: 15px 20px;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-.arrow {
-  font-size: 1.2rem;
-  transition: transform 0.3s;
-}
-.faq-item.active .arrow {
-  transform: rotate(90deg);
-}
-.faq-item.active .faq-answer {
-  display: block;
-}
-</style>
+<section id="osa">
+  <h2>OSA</h2>
+  <p>Vänligen svara senast 1 maj 2025.</p>
+  <iframe src="https://docs.google.com/forms/d/e/DITT-FORM-ID/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Laddar…</iframe>
+</section>
+
+<footer>
+  <p>© Anna & Per 2025</p>
+</footer>
 
 <script>
 document.querySelectorAll('.faq-question').forEach(button => {
@@ -322,28 +301,6 @@ document.querySelectorAll('.faq-question').forEach(button => {
   });
 });
 </script>
-  
-<section>
-  <h2>OSA</h2>
-  <p>Vänligen svara senast 6 maj 2026.</p>
-
-  <form action="https://formsubmit.co/emil.thiman96@gmail.com" method="POST">
-    <label for="namn">Namn:</label><br>
-    <input type="text" id="namn" name="namn" required><br><br>
-
-    <label for="antal">Antal gäster:</label><br>
-    <input type="number" id="antal" name="antal" min="1" required><br><br>
-
-    <label for="mat">Matpreferenser / allergier:</label><br>
-    <textarea id="mat" name="mat" rows="3"></textarea><br><br>
-
-    <button type="submit" class="osa-btn">Skicka OSA</button>
-  </form>
-</section>
-
-  <footer>
-    <p>© Arvid & Emelie 2026</p>
-  </footer>
 
 </body>
 </html>
