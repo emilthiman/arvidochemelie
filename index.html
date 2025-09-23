@@ -189,6 +189,71 @@
     .faq-item.active .arrow { transform: rotate(90deg); }
     .faq-item.active .faq-answer { display: block; }
 
+   /* Brudfölje */
+.subheading {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  color: var(--green);
+}
+
+.bridal-party {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.person-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.person-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.person-card img:hover {
+  transform: scale(1.05);
+}
+
+.person-card h4 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  margin: 10px 0 5px;
+  color: var(--green);
+}
+
+.person-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.person-card a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.person-card a:hover {
+  text-decoration: underline;
+}
+    
     /* Vigsel & Fest */
     .map-wrapper {
       display: flex;
@@ -259,6 +324,70 @@
   </div>
 </section>
 
+<section id="party">
+  <h2>Brudfölje</h2>
+
+  <!-- Brudtärnor & Toastmasters -->
+  <h3 class="subheading">Brudtärnor & Toastmasters</h3>
+  <div class="bridal-party">
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Brudtärna 1">
+      <h4>Lisa Andersson</h4>
+      <p>Brudtärna</p>
+      <p>Lisas värme och energi sprider alltid glädje. Hon har varit Emelies vän sedan barndomen.</p>
+    </div>
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Brudtärna & Toastmaster">
+      <h4>Sofia Karlsson</h4>
+      <p>Brudtärna & Toastmaster</p>
+      <p>Sofia är både brudtärna och toastmaster. Ni kan kontakta henne för frågor om festen.</p>
+      <p>
+        📧 <a href="mailto:sofia@example.com">sofia@example.com</a><br>
+        📞 <a href="tel:+46701234567">+46 70 123 45 67</a>
+      </p>
+    </div>
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1544717305-996b815c338c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Brudtärna 3">
+      <h4>Emma Nilsson</h4>
+      <p>Brudtärna</p>
+      <p>Med sitt lugn och omtänksamma sätt har Emma alltid funnits som stöd genom livet.</p>
+    </div>
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Toastmaster Johan">
+      <h4>Johan Persson</h4>
+      <p>Toastmaster</p>
+      <p>Johan guidar er genom kvällen som toastmaster. Kontakta honom för praktiska frågor.</p>
+      <p>
+        📧 <a href="mailto:johan@example.com">johan@example.com</a><br>
+        📞 <a href="tel:+46707654321">+46 70 765 43 21</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Best Men -->
+  <h3 class="subheading">Best Men</h3>
+  <div class="bridal-party">
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Best Man 1">
+      <h4>Anders Svensson</h4>
+      <p>Best Man</p>
+      <p>Arvids barndomsvän, alltid redo med ett gott skratt och fina minnen.</p>
+    </div>
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Best Man 2">
+      <h4>Marcus Eriksson</h4>
+      <p>Best Man</p>
+      <p>Marcus är Arvids studiekamrat och en trogen vän i alla lägen.</p>
+    </div>
+    <div class="person-card">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Best Man 3">
+      <h4>Daniel Larsson</h4>
+      <p>Best Man</p>
+      <p>Daniel och Arvid delar passion för musik och sport – en självklar del av följet.</p>
+    </div>
+  </div>
+</section>
+  
 <section id="place">
   <h2>Vigsel & Fest</h2>
   <p>Vi firar både vigsel och fest på en underbar plats. Här möts naturens rofylldhet med festlig stämning.</p>
