@@ -96,66 +96,106 @@
       margin-bottom: 20px;
     }
 
-    /* Tidslinje */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 40px auto;
-    }
-    .timeline::after {
-      content: "";
-      position: absolute;
-      width: 4px;
-      background: var(--green);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .timeline-item {
-      padding: 20px;
-      position: relative;
-      width: 50%;
-    }
-    .timeline-item .content {
-      background: var(--light-green);
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid var(--green);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .timeline-item .content:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    .timeline-item .time {
-      font-weight: bold;
-      color: var(--green);
-      display: block;
-      margin-bottom: 5px;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      top: 30px;
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: var(--green);
-      border: 3px solid white;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-    .timeline-item.left { left: 0; text-align: right; padding-right: 40px; }
-    .timeline-item.right { left: 50%; text-align: left; padding-left: 40px; }
+/* Tidslinje */
+#timeline {
+  padding: 80px 20px;
+  background: #f9faf9;
+  text-align: center;
+}
 
-    @media screen and (max-width: 768px) {
-      .timeline::after { left: 20px; }
-      .timeline-item { width: 100%; padding-left: 50px; text-align: left; }
-      .timeline-item.left, .timeline-item.right { left: 0; padding: 20px; }
-      .timeline-item::before { left: 10px; transform: none; }
-    }
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
 
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  background: #2f4f4f;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+.timeline-item.left .timeline-content {
+  order: 1;
+  text-align: right;
+}
+
+.timeline-item.left .timeline-marker {
+  order: 2;
+  margin-left: 30px;
+}
+
+.timeline-item.right .timeline-marker {
+  order: 1;
+  margin-right: 30px;
+}
+
+.timeline-item.right .timeline-content {
+  order: 2;
+  text-align: left;
+}
+
+.timeline-content {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 40%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.timeline-content h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  color: #2f4f4f;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.timeline-marker {
+  width: 80px;
+  height: 80px;
+  background: #2f4f4f;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover-effekter */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.timeline-marker:hover {
+  transform: scale(1.1);
+  background: #3b6e6e;
+}
+    
     /* FAQ */
     .faq-item {
       margin-bottom: 15px;
@@ -310,16 +350,33 @@
 </section>
 
 <section id="timeline">
-  <h2>Dagens Schema</h2>
+  <h2>Tidslinje</h2>
   <div class="timeline">
+    <!-- Punkt 1 -->
     <div class="timeline-item left">
-      <div class="content"><span class="time">14:00</span><h3>Vigsel</h3><p>Vi gifter oss i Storkyrkan.</p></div>
+      <div class="timeline-content">
+        <h3>15:00 Vigsel</h3>
+        <p>Vi samlas vid Åmund Vin och Fruktgård för en ceremoni fylld av kärlek.</p>
+      </div>
+      <div class="timeline-marker">15:00</div>
     </div>
+
+    <!-- Punkt 2 -->
     <div class="timeline-item right">
-      <div class="content"><span class="time">16:00</span><h3>Middag</h3><p>Trerätters middag på Grand Hôtel.</p></div>
+      <div class="timeline-marker">17:00</div>
+      <div class="timeline-content">
+        <h3>17:00 Middag</h3>
+        <p>Njut av en festmåltid med god mat, dryck och härligt sällskap.</p>
+      </div>
     </div>
+
+    <!-- Punkt 3 -->
     <div class="timeline-item left">
-      <div class="content"><span class="time">20:00</span><h3>Fest</h3><p>Dans, musik och överraskningar hela kvällen!</p></div>
+      <div class="timeline-content">
+        <h3>20:00 Fest</h3>
+        <p>Dans, musik och glädje hela kvällen – låt oss fira tillsammans!</p>
+      </div>
+      <div class="timeline-marker">20:00</div>
     </div>
   </div>
 </section>
